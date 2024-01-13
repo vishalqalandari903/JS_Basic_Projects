@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #212121;
+        }
+
+        .container {
+            transform: translateY(-25%);
+            color: white;
+        }
+
+        .color {
+            height: 100px;
+            width: 100px;
+            cursor: pointer;
+        }
+        .c1 {
+            background-color: rgb(109, 109, 237);
+        }
+        .c2 {
+            background-color: rgb(0, 255, 0);
+        }
+        .c3  {
+            background-color: brown;
+        }
+        .c4 {
+            background-color: gray;
+        }
+
+        h1 {
+            font-family: monospace;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Color Scheme Switcher</h1>
+        <div class="colors">
+            <button class="c1 color"></button>
+            <button class="c2 color"></button>
+            <button class="c3 color"></button>
+            <button class="c4 color"></button>
+        </div>
+    </div>
+    
+</body>
+<script>
+    let colors = document.querySelectorAll(".color");
+    Array.from(colors).forEach(color => {
+        color.addEventListener("click", () => {
+            let backgroundColor = window.getComputedStyle(color).backgroundColor;
+            // console.log(backgroundColor);
+            document.body.style.backgroundColor = backgroundColor;
+        })
+    })
+</script>
+</html>
